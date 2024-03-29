@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  background-image: url("./assets/dakshaBG.jpg");
+  background-repeat: no-repeat;
+  background-position: 60%;
+  background-size: cover;
+  color: white;
+  font-family: Poppins;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+a,
+li {
+  list-style: none;
+  text-decoration: none;
+}

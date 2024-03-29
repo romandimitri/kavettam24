@@ -1,0 +1,27 @@
+[
+  {
+    "teamName": "team1",
+    "year": "1st",
+    "point": 10
+  },
+  {
+    "teamName": "team2",
+    "year": "2nd",
+    "point": 30
+  },
+  {
+    "teamName": "team3",
+    "year": "3rd",
+    "point": 20
+  },
+  {
+    "teamName": "team4",
+    "year": "4th",
+    "point": 5
+  },
+  {
+    "teamName": "team5",
+    "year": "M.tech 1st",
+    "point": 5
+  }
+]

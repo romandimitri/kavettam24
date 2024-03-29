@@ -1,0 +1,115 @@
+.title--box {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  h1 {
+    display: block;
+    text-align: center;
+    margin: 0;
+  }
+  .Search{
+    display: block;
+    margin: auto;
+    padding: .6rem .8rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.237);
+    color: white !important;;
+    border-radius: .3rem;
+    width: 18rem;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: auto;
+    margin-top: 1rem;
+
+    &::placeholder{
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.event_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4.5rem;
+  width: 100vw;
+  max-width: 1400px;
+  padding: 0 24px;
+  margin: auto;
+  padding-bottom: 64px;
+
+  .event_card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: calc(100vw - 48px);
+    min-width: 350px;
+    max-width: 400px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.237);
+    border: 1px solid rgba(255, 255, 255, 0.237);
+    border-radius: 1rem;
+    backdrop-filter: blur(5px);
+
+    span[data-state="Result Announced"] {
+      color: greenyellow;
+    }
+    span[data-state="Postponed"] {
+      color: yellow;
+    }
+    span[data-state="Cancelled"] {
+      color: rgb(255, 99, 99);
+    }
+    span[data-state="Withheld"] {
+      color: rgb(124, 209, 255);
+    }
+
+    span[data-state=""]{
+      display: none !important;
+    }
+
+    .mele{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    
+    .eventName{
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+    .eventState{
+      font-size: .8rem;
+    }
+    .eventStage{
+      font-weight: 500;
+    }
+    .eventStartTime{
+      margin-bottom: 16px;
+    }
+
+    .Winner{
+      outline: 1px solid;
+      border-radius: .3rem;
+      padding: .2rem .4rem;
+
+      &:not(:last-child){
+        margin-bottom: 8px;
+      }
+    }
+
+    .FirstWinner{
+      color: rgba(255, 217, 0, 1);
+      background-color: rgba(255, 217, 0, 0.1);
+    }
+    .SecondWinner{
+      color: rgba(192, 192, 192, 1);
+      background-color: rgba(192, 192, 192, 0.1);
+    }
+    .ThirdWinner{
+      color: rgba(205, 127, 50, 1);
+      background-color: rgba(205, 127, 50, 0.1);
+    }
+
+  }
+}

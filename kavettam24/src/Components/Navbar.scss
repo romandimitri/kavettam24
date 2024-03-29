@@ -1,0 +1,213 @@
+@import "../Variables.scss";
+
+.nav--box {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+
+  .nav--container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 24px;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+
+    .nav--logo {
+      .logo {
+        height: 100px;
+        width: 100px;
+        object-fit: contain;
+        user-select: none;
+      }
+    }
+    .nav--links {
+      ul {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.15rem;
+        font-weight: 500;
+        text-align: center;
+        a,
+        li {
+          display: inline;
+          color: rgb(120, 120, 120);
+        }
+      }
+
+      .nav--link {
+        a {
+          transition: $transition1;
+
+          &:is(:hover, :focus):not(.active) {
+            color: rgb(255, 255, 255);
+          }
+
+          &::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 4px;
+            border-radius: 3rem;
+            background-color: white;
+            position: relative;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: $transition1;
+          }
+        }
+        a.active {
+          color: rgb(255, 255, 255);
+
+          &::after {
+            width: 18px;
+          }
+        }
+      }
+    }
+    .nav--cta {
+      padding: 0.6rem 1.6rem;
+      border: none;
+      border-radius: 3rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 0 15px black;
+      background-image: url("../assets/buttonbg.png");
+      background-size: 200%;
+      background-position: 10%;
+      transition: $transition1;
+      outline-offset: 4px;
+      outline: 1.5px solid rgba(255, 255, 255, 0.237);
+
+      &:is(:hover, :focus) {
+        background-position: 60%;
+        outline: 1.5px solid rgb(255, 255, 255);
+      }
+    }
+
+    .menu-icon {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      z-index: 2;
+      outline: 1.5px solid rgba(255, 255, 255, 0.237);
+      border-radius: 0.3rem;
+      display: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      transition: $transition1;
+
+      .menu-icon__cheeckbox {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+        -webkit-touch-callout: none;
+        position: absolute;
+        opacity: 0;
+      }
+      div {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
+      }
+      span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        border-radius: 1px;
+        transition: $transition1;
+
+        &:first-of-type {
+          top: 0;
+        }
+        &:last-of-type {
+          bottom: 0;
+        }
+      }
+      .menu-icon__cheeckbox:checked + div {
+        span {
+          &:first-of-type {
+            transform: rotate(45deg);
+            top: 5px;
+          }
+          &:last-of-type {
+            transform: rotate(-45deg);
+            bottom: 5px;
+          }
+        }
+      }
+      &:has(.menu-icon__cheeckbox:checked) {
+        outline: 1.5px solid rgb(255, 255, 255);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .nav--cta {
+    display: none;
+  }
+  .nav--box {
+    .nav--container {
+      .menu-icon {
+        display: inline-block;
+      }
+      .nav--logo {
+        .logo {
+          height: 100px;
+          width: 100px;
+          object-fit: contain;
+          user-select: none;
+        }
+      }
+    }
+  }
+
+  .nav--links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    ul {
+      width: 100vw;
+      height: 0;
+      visibility: hidden;
+      flex-direction: column;
+      opacity: 0;
+      transition: $transition2;
+    }
+
+    &.active {
+      ul {
+        height: 100vh;
+        visibility: visible;
+        background-color: rgba(0, 0, 0, 0.97);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.menu--open {
+  overflow: hidden;
+  height: 100vh;
+}
